@@ -1,0 +1,27 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      - CORS_ALLOW_ORIGINS=*
+      - NUM_TOOLS=11
+      - USE_YOLO=1
+      - YOLO_MODEL=yolov8s-seg.pt
+      - MODEL_PATH=/app/backend/models/best.onnx
+      - INFER_SIZE=2048
+      - ROI_ENABLE=true
+      - THRESHOLD=0.98
+    restart: unless-stopped
+    volumes:
+      - ./backend/models:/app/backend/models
+      - ./outputs:/app/outputs
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+
