@@ -45,6 +45,8 @@ tmp/
 *.tar
 *.gz
 *.zip
+# Allow tracking release archive
+!releases/*.tgz
 
 # Models and large binaries (not tracked by default)
 *.pt
