@@ -7,7 +7,12 @@
 - Хост с GPU NVIDIA (драйвер 535+), установлен `nvidia-container-toolkit`
 - Интернет для скачивания зависимостей и LFS‑объектов
 
-## Быстрый старт
+## Важно про Git LFS
+- Модели (`models/*.onnx`, `models/*.pt`) хранятся в Git LFS.
+- КНОПКА “Download ZIP” НЕ скачивает реальные веса (получите 133‑байтовые указатели).
+- Правильный способ: `git clone` + `git lfs pull` (см. ниже) или скачайте архив из `releases/`.
+
+## Быстрый старт (рекомендуется: git clone + LFS)
 1. Клонируйте репозиторий и подтяните LFS‑артефакты (модели):
    ```bash
    git clone https://github.com/ArthurA07/Searchlaba2925.git
@@ -25,6 +30,16 @@
    docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d
    # API: http://localhost:18000/docs
    ```
+
+## Альтернатива (одним файлом, без LFS)
+- В репозитории лежит архив `releases/hack2025_dist_code.tgz` (~80 МБ) с кодом и моделями.
+- Распаковка в корень проекта:
+  ```bash
+  tar -xzf releases/hack2025_dist_code.tgz -C .
+  rsync -a dist_import/ ./
+  cp backend/.env.example backend/.env
+  docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d
+  ```
 
 ## Проверка
 - Health:
@@ -52,8 +67,8 @@
 - `SCORE_THR=0.30`, `IOU_THR=0.50`, `NUM_CLASSES=11`
 
 ## Где лежат модели
-- `models/best.onnx` и `models/best.pt` — подтягиваются через Git LFS
-- Активная модель — симлинк `models/current.onnx`
+- `models/best.onnx`, `models/current.onnx`, `models/best.pt`, `models/stage2_best.pt`
+- Хранятся под Git LFS; альтернативно — внутри `releases/hack2025_dist_code.tgz`
 
 ## Эндпоинты
 - `POST /api/v1/infer` — основной инференс (GPU/ONNX)
