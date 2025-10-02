@@ -1,0 +1,29 @@
+<View>
+  <Image name="image" value="$image" zoom="true" rotateControl="true"/>
+  <PolygonLabels name="label" toName="image">
+    <Label value="otvertka_minus" background="#7a7a7a"/>
+    <Label value="otvertka_plus" background="#7a7a7a"/>
+    <Label value="otvertka_smesh_krest" background="#7a7a7a"/>
+    <Label value="kolovorot" background="#7a7a7a"/>
+    <Label value="passatigi_kontrov" background="#7a7a7a"/>
+    <Label value="passatigi" background="#7a7a7a"/>
+    <Label value="shernitsa" background="#7a7a7a"/>
+    <Label value="razvodnoy_klyuch" background="#7a7a7a"/>
+    <Label value="otkryvashka_maslo_bank" background="#7a7a7a"/>
+    <Label value="klyuch_rozhkovy_nakid_3_4" background="#7a7a7a"/>
+    <Label value="bokorezy" background="#7a7a7a"/>
+  </PolygonLabels>
+  <BrushLabels name="brush" toName="image">
+    <Label value="otvertka_minus" background="#7a7a7a"/>
+    <Label value="otvertka_plus" background="#7a7a7a"/>
+    <Label value="otvertka_smesh_krest" background="#7a7a7a"/>
+    <Label value="kolovorot" background="#7a7a7a"/>
+    <Label value="passatigi_kontrov" background="#7a7a7a"/>
+    <Label value="passatigi" background="#7a7a7a"/>
+    <Label value="shernitsa" background="#7a7a7a"/>
+    <Label value="razvodnoy_klyuch" background="#7a7a7a"/>
+    <Label value="otkryvashka_maslo_bank" background="#7a7a7a"/>
+    <Label value="klyuch_rozhkovy_nakid_3_4" background="#7a7a7a"/>
+    <Label value="bokorezy" background="#7a7a7a"/>
+  </BrushLabels>
+</View>

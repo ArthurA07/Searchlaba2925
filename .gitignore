@@ -43,12 +43,17 @@ tmp/
 *.gz
 *.zip
 
-# Models and large binaries (not tracked)
+# Models and large binaries (not tracked by default)
 *.pt
 *.onnx
 *.engine
 *.npy
 *.npz
+
+# Allow tracking models in repo models/
+!models/
+!models/*.pt
+!models/*.onnx
 
 # Misc caches
 *.cache
