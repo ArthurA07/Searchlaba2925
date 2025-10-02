@@ -41,6 +41,18 @@
   docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d
   ```
 
+## Работа с публичным сервером (без локального развёртывания)
+- Swagger/UI: `http://89.108.118.166:18000/docs`
+- Проверка движка (ожидаем `engine: onnxrt`, CUDA активен):
+  ```bash
+  curl -s http://89.108.118.166:18000/api/v1/bench | jq
+  ```
+- Инференс (пример без ROI, порог 0.40):
+  ```bash
+  curl -sS -X POST 'http://89.108.118.166:18000/api/v1/infer?score_thr=0.40&roi=false' \
+    -F 'file=@/path/to/any.jpg' | jq '{engine, used_imgsz, infer_ms, n_det: (.detections|length)}'
+  ```
+
 ## Проверка
 - Health:
   ```bash
