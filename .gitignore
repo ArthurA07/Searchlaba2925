@@ -15,6 +15,9 @@ venv/
 .env
 .env.*
 
+# Allow tracking env example
+!backend/.env.example
+
 # Node / Frontend
 frontend/node_modules/
 frontend/dist/
